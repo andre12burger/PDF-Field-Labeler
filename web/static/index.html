@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PDF Form Labeler</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <main>
+    <div class="header">
+      <label for="fileInput" style="font-weight:700; margin-right: 8px;">Escolher arquivo:</label>
+      <input type="file" id="fileInput" accept="application/pdf" />
+      <button id="btnUpload">Enviar PDF</button>
+      <button id="btnPrevPage">&lt;</button>
+      <input id="pageNumber" type="number" min="1" value="1" style="width: 60px;" />
+      <button id="btnNextPage">&gt;</button>
+      <button id="btnRenderPage">Ir</button>
+      <span id="uploadStatus" style="margin-left: 12px; color:#333;"></span>
+    </div>
+
+    <div class="container">
+      <div class="viewer-pane">
+        <div id="pdfContainer" class="pdf-container">
+          <img id="pdfPreview" alt="PDF preview" />
+          <canvas id="overlayCanvas"></canvas>
+        </div>
+      </div>
+      <div class="sidebar">
+        <h3>Campos</h3>
+        <p id="fieldCount" style="margin:0 0 8px;">Campos: 0</p>
+        <div id="fieldsContainer" class="field-list">Carregue um PDF e extraia campos...</div>
+        <button id="btnApplyOnMap">Aplicar renomeações e gerar PDF</button>
+        <p id="applyStatus"></p>
+        <a id="downloadLink" href="#" style="display:none;">Baixar PDF Normalizado</a>
+      </div>
+    </div>
+  </main>
+
+  <p style="font-size:0.9rem; color:#444; text-align:center; margin-top: 8px;">Visualização em canvas desabilitada por configuração para funcionamento interno; continue com upload/campos/gerar.</p>
+  <script src="/static/app.js"></script>
+</body>
+</html>
